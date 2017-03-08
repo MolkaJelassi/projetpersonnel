@@ -29,6 +29,7 @@ public class Station implements Serializable {
 
 	@OneToMany(mappedBy = "station")
 	private List<Training> trainings;
+
 	private static final long serialVersionUID = 1L;
 
 	@OneToMany(mappedBy = "station")
@@ -36,6 +37,30 @@ public class Station implements Serializable {
 
 	public Station() {
 		super();
+	}
+
+	public List<Staff> getStaffs() {
+		return staffs;
+	}
+
+	public void setStaffs(List<Staff> staffs) {
+		this.staffs = staffs;
+	}
+
+	public List<Training> getTrainings() {
+		return trainings;
+	}
+
+	public void setTrainings(List<Training> trainings) {
+		this.trainings = trainings;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 	public Integer getStationId() {

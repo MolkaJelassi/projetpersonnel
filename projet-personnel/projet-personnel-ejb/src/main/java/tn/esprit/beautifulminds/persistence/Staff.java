@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -27,9 +28,15 @@ public class Staff extends Person implements Serializable {
 	@OneToMany(mappedBy = "staff")
 	private List<Staff> staffs;
 
+	@ManyToMany(mappedBy = "eventStaffs")
+	private List<Event> staffEvents;
+
 	@ManyToOne
 	private Station station;
 	private static final long serialVersionUID = 1L;
+
+	@ManyToOne
+	private Shop shop;
 
 	public Staff() {
 		super();
@@ -73,6 +80,46 @@ public class Staff extends Person implements Serializable {
 
 	public void setNbjR(Integer nbjR) {
 		this.nbjR = nbjR;
+	}
+
+	public Staff getStaff() {
+		return staff;
+	}
+
+	public void setStaff(Staff staff) {
+		this.staff = staff;
+	}
+
+	public List<Staff> getStaffs() {
+		return staffs;
+	}
+
+	public void setStaffs(List<Staff> staffs) {
+		this.staffs = staffs;
+	}
+
+	public List<Event> getStaffEvents() {
+		return staffEvents;
+	}
+
+	public void setStaffEvents(List<Event> staffEvents) {
+		this.staffEvents = staffEvents;
+	}
+
+	public Station getStation() {
+		return station;
+	}
+
+	public void setStation(Station station) {
+		this.station = station;
+	}
+
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
 	}
 
 }
