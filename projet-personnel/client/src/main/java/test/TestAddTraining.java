@@ -11,7 +11,7 @@ public class TestAddTraining {
 	public static void main(String[] args) throws NamingException {
 		Context context = new InitialContext();
 		TrainingservicesRemote trainingservicesRemote = (TrainingservicesRemote) context.lookup(
-				"projet-personnel-ear/projet-personnel-ejb/Training!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
+				"projet-personnel-ear/projet-personnel-ejb/Trainingservices!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
 
 		String name = "League";
 		String type = "ICE";
