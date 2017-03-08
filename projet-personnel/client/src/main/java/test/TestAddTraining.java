@@ -1,5 +1,7 @@
 package test;
 
+import java.util.Date;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -16,13 +18,16 @@ public class TestAddTraining {
 		String name = "League";
 		String type = "ICE";
 		String categorie = "amateur";
+		Date dateBegin = new Date(System.currentTimeMillis());
+		// Date dateBegin='2017-03-08';
 		Integer hourBegin = 13;
 		Integer durationDay = 5;
 		Integer durationHour = 1;
 		String trainer = "Toto";
 		float fees = 3;
 		Integer capacity = 20;
-		Training t = new Training(name, type, categorie, hourBegin, durationDay, durationHour, trainer, fees, capacity);
+		Training t = new Training(name, type, categorie, dateBegin, hourBegin, durationDay, durationHour, trainer, fees,
+				capacity);
 		trainingservicesRemote.addTraining(t);
 	}
 }
