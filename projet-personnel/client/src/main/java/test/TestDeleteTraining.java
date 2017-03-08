@@ -13,7 +13,7 @@ public class TestDeleteTraining {
 		TrainingservicesRemote trainingservicesRemote = (TrainingservicesRemote) context.lookup(
 				"projet-personnel-ear/projet-personnel-ejb/Trainingservices!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
 
-		Training training1 = trainingservicesRemote.findTrainingById(1);
+		Training training1 = trainingservicesRemote.findTrainingById(2);
 
 		trainingservicesRemote.deleteTraining(training1);
 	}

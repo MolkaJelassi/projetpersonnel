@@ -46,6 +46,21 @@ public class Training implements Serializable {
 		super();
 	}
 
+	public Training(String name, String type, String categorie, Date dateBegin, Integer hourBegin, Integer durationDay,
+			Integer durationHour, String trainer, float fees, Integer capacity) {
+		super();
+		Name = name;
+		this.type = type;
+		this.categorie = categorie;
+		this.dateBegin = dateBegin;
+		this.hourBegin = hourBegin;
+		this.durationDay = durationDay;
+		this.durationHour = durationHour;
+		this.trainer = trainer;
+		this.fees = fees;
+		this.capacity = capacity;
+	}
+
 	public Training(String name, String type, String categorie, Integer hourBegin, Integer durationDay,
 			Integer durationHour, String trainer, float fees, Integer capacity) {
 		super();
