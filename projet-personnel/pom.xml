@@ -92,5 +92,6 @@
     <module>projet-personnel-ejb</module>
     <module>projet-personnel-web</module>
     <module>projet-personnel-ear</module>
+    <module>client</module>
   </modules>
 </project>
