@@ -31,7 +31,7 @@ public class TrainerServices implements TrainerServicesRemote, TrainerServicesLo
 	}
 
 	@Override
-	public Trainer findTrainingById(Integer idPerson) {
+	public Trainer findTrainerById(Integer idPerson) {
 		return entityManager.find(Trainer.class, idPerson);
 	}
 

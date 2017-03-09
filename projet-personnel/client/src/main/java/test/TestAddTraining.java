@@ -18,8 +18,8 @@ public class TestAddTraining {
 		String name = "League";
 		String type = "ICE";
 		String categorie = "amateur";
-		Date dateBegin = new Date(System.currentTimeMillis());
-		// Date dateBegin='2017-03-08';
+		// Date dateBegin = new Date(System.currentTimeMillis());
+		Date dateBegin = new Date(17, 3, 8);
 		Integer hourBegin = 13;
 		Integer durationDay = 5;
 		Integer durationHour = 1;

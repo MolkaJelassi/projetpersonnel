@@ -33,6 +33,23 @@ public class Trainer extends Person implements Serializable {
 		super();
 	}
 
+	public Trainer(String firstName, String lastName, Date birthday, String nationality, String gender, String email,
+			String password, String role, Integer nbjT, Integer nbjR, String expirence, String description,
+			String categorie, Integer ratingPoints) {
+		super(firstName, lastName, birthday, nationality, gender);
+		this.email = email;
+		this.password = password;
+		this.role = role;
+		this.nbjT = nbjT;
+		this.nbjR = nbjR;
+		this.expirence = expirence;
+		this.description = description;
+		this.categorie = categorie;
+		this.ratingPoints = ratingPoints;
+
+	}
+	
+
 	public Trainer(Integer personId, String firstName, String lastName, Date birthday, String nationality,
 			String gender, String email, String password, String role, Integer nbjT, Integer nbjR, String expirence,
 			String description, String categorie, Integer ratingPoints, List<Training> trainings) {
