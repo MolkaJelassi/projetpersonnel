@@ -31,8 +31,8 @@ public class Trainingservices implements TrainingservicesRemote, Trainingservice
 	}
 
 	@Override
-	public Training findTrainingById(Integer idTraining) {
-		return entityManager.find(Training.class, idTraining);
+	public Training findTrainingById(Integer idPerson) {
+		return entityManager.find(Training.class, idPerson);
 	}
 
 	@Override

@@ -10,7 +10,7 @@ import tn.esprit.beautifulminds.persistence.Training;
 public interface TrainingservicesRemote {
 	void addTraining(Training training);
 
-	Training findTrainingById(Integer idTraining);
+	Training findTrainingById(Integer idPerson);
 
 	void deleteTraining(Training training);
 

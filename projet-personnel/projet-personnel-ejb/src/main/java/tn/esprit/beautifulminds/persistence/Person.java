@@ -39,6 +39,15 @@ public class Person implements Serializable {
 		this.gender = gender;
 	}
 
+	public Person(String firstName, String lastName, Date birthday, String nationality) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.birthday = birthday;
+		this.nationality = nationality;
+
+	}
+
 	public Integer getPersonId() {
 		return personId;
 	}
