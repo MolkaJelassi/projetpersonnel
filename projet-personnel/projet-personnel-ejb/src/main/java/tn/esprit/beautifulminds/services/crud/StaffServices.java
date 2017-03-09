@@ -3,6 +3,8 @@ package tn.esprit.beautifulminds.services.crud;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import tn.esprit.beautifulminds.persistence.Staff;
 
@@ -12,6 +14,8 @@ import tn.esprit.beautifulminds.persistence.Staff;
 @Stateless
 
 public class StaffServices implements StaffServicesRemote, StaffServicesLocal {
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	/**
 	 * Default constructor.
@@ -22,32 +26,30 @@ public class StaffServices implements StaffServicesRemote, StaffServicesLocal {
 
 	@Override
 	public void addStaff(Staff staff) {
-		// TODO Auto-generated method stub
+		entityManager.persist(staff);
 
 	}
 
 	@Override
 	public Staff findStaffById(Integer idPerson) {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.find(Staff.class, idPerson);
 	}
 
 	@Override
 	public void deleteStaff(Staff staff) {
-		// TODO Auto-generated method stub
+		entityManager.remove(entityManager.merge(staff));
 
 	}
 
 	@Override
 	public void updateStaff(Staff staff) {
-		// TODO Auto-generated method stub
+		entityManager.merge(staff);
 
 	}
 
 	@Override
 	public List<Staff> findAllStaffs() {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery("select st from Staff st ").getResultList();
 	}
 
 }

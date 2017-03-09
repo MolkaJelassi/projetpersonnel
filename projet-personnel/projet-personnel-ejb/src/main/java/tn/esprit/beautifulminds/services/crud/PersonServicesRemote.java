@@ -10,7 +10,7 @@ import tn.esprit.beautifulminds.persistence.Person;
 
 @Remote
 public interface PersonServicesRemote {
-	void addPerson(Person Person);
+	void addPerson(Person person);
 
 	Person findPersonById(Integer idPerson);
 

@@ -10,7 +10,7 @@ import tn.esprit.beautifulminds.persistence.Trainer;
 public interface TrainerServicesRemote {
 	void addTrainer(Trainer trainer);
 
-	Trainer findTrainingById(Integer idTrainer);
+	Trainer findTrainingById(Integer idPerson);
 
 	void deleteTraining(Trainer trainer);
 

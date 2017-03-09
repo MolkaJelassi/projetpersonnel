@@ -3,6 +3,8 @@ package tn.esprit.beautifulminds.services.crud;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import tn.esprit.beautifulminds.persistence.Person;
 
@@ -11,6 +13,8 @@ import tn.esprit.beautifulminds.persistence.Person;
  */
 @Stateless
 public class PersonServices implements PersonServicesRemote, PersonServicesLocal {
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	/**
 	 * Default constructor.
@@ -20,33 +24,29 @@ public class PersonServices implements PersonServicesRemote, PersonServicesLocal
 	}
 
 	@Override
-	public void addPerson(Person Person) {
-		// TODO Auto-generated method stub
-
+	public void addPerson(Person person) {
+		entityManager.persist(person);
 	}
 
 	@Override
 	public Person findPersonById(Integer idPerson) {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.find(Person.class, idPerson);
 	}
 
 	@Override
 	public void deletePerson(Person person) {
-		// TODO Auto-generated method stub
+		entityManager.remove(entityManager.merge(person));
 
 	}
 
 	@Override
 	public void updatePerson(Person person) {
-		// TODO Auto-generated method stub
-
+		entityManager.merge(person);
 	}
 
 	@Override
 	public List<Person> findAllPersons() {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery("select per from Person per ").getResultList();
 	}
 
 }
