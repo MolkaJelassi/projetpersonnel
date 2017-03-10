@@ -46,6 +46,7 @@ public class Trainingservices implements TrainingservicesRemote, Trainingservice
 		entityManager.merge(training);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Training> findAllTrainings() {
 		return entityManager.createQuery("select t from Training t ").getResultList();

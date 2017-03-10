@@ -44,6 +44,7 @@ public class PersonServices implements PersonServicesRemote, PersonServicesLocal
 		entityManager.merge(person);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Person> findAllPersons() {
 		return entityManager.createQuery("select per from Person per ").getResultList();

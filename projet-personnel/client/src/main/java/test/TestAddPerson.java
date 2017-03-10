@@ -17,7 +17,8 @@ public class TestAddPerson {
 
 		String firstName = "snake";
 		String lastName = "shark";
-		Date birthday = new Date(85, 02, 03);
+		@SuppressWarnings("deprecation")
+		Date birthday = new Date(79,10,30);
 		String nationality = "tunisienne";
 		String gender = "male";
 		Person p = new Person(firstName, lastName, birthday, nationality, gender);

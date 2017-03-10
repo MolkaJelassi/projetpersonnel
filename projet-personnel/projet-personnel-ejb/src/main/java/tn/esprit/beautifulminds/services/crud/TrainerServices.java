@@ -45,6 +45,7 @@ public class TrainerServices implements TrainerServicesRemote, TrainerServicesLo
 		entityManager.merge(trainer);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Trainer> findAllTrainers() {
 		return entityManager.createQuery("select ent from Trainer ent ").getResultList();

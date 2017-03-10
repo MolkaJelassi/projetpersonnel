@@ -47,6 +47,7 @@ public class StaffServices implements StaffServicesRemote, StaffServicesLocal {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Staff> findAllStaffs() {
 		return entityManager.createQuery("select st from Staff st ").getResultList();

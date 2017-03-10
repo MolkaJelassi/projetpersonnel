@@ -17,6 +17,7 @@ public class TestAddStaff {
 
 		String firstName = "snake";
 		String lastName = "shark";
+		@SuppressWarnings("deprecation")
 		Date birthday = new Date(85, 02, 03);
 		String nationality = "tunisienne";
 		String gender = "male";

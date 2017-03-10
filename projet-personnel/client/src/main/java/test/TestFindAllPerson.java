@@ -17,7 +17,7 @@ public class TestFindAllPerson {
 		List<Person> person = personServicesRemote.findAllPersons();
 
 		for (Person per : person) {
-			System.out.println(per.getSerialversionuid());
+			System.out.println(per.getNationality());
 		}
 
 	}

@@ -5,7 +5,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import tn.esprit.beautifulminds.persistence.Staff;
-import tn.esprit.beautifulminds.persistence.Person;
 import tn.esprit.beautifulminds.services.crud.StaffServicesRemote;
 
 

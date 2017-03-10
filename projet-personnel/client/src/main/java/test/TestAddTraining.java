@@ -19,6 +19,7 @@ public class TestAddTraining {
 		String type = "ICE";
 		String categorie = "amateur";
 		// Date dateBegin = new Date(System.currentTimeMillis());
+		@SuppressWarnings("deprecation")
 		Date dateBegin = new Date(17, 3, 8);
 		Integer hourBegin = 13;
 		Integer durationDay = 5;
