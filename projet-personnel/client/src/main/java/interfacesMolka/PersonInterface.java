@@ -19,7 +19,7 @@ public class PersonInterface extends Application {
 	private TextArea textfiled1;
 
 	@FXML
-	private Button button1;
+	private Button button;
 	private String message;
 
 	public static void main(String[] args) {
@@ -30,7 +30,7 @@ public class PersonInterface extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		Stage stage = new Stage();
 		stage.setTitle("Management of  the staff");
-		Parent root = FXMLLoader.load(getClass().getResource("PersonViewf.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("view.fxml"));
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
@@ -42,6 +42,6 @@ public class PersonInterface extends Application {
 
 		message = textfiled1.getText();
 		JOptionPane.showMessageDialog(null, message);
-		System.out.println(message);
+		// System.out.println(message);
 	}
 }
