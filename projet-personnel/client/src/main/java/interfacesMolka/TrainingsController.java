@@ -106,7 +106,7 @@ public class TrainingsController {
 		stage.setTitle("Add a training");
 		Parent root;
 		try {
-			root = FXMLLoader.load(getClass().getResource("Trainingsadd.fxml"));
+			root = FXMLLoader.load(getClass().getResource("Trainingsadd2.fxml"));
 
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
