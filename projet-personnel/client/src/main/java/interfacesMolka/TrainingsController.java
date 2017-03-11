@@ -1,5 +1,6 @@
 package interfacesMolka;
 
+import java.io.IOException;
 import java.util.Date;
 
 import javax.naming.Context;
@@ -8,14 +9,22 @@ import javax.naming.NamingException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import tn.esprit.beautifulminds.persistence.Training;
 import tn.esprit.beautifulminds.services.crud.TrainingservicesRemote;
 
 public class TrainingsController {
+	@FXML
+	private Button addB;
 
 	@FXML
 	private TableView<Training> tabtraining;
@@ -83,7 +92,26 @@ public class TrainingsController {
 			station.setCellValueFactory(new PropertyValueFactory<Training, Integer>("station"));
 
 			tabtraining.setItems(data);
+
 		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	void clickbuttonB(ActionEvent event) {
+		System.out.println("hey");
+		Stage stage = new Stage();
+		stage.setTitle("Add a training");
+		Parent root;
+		try {
+			root = FXMLLoader.load(getClass().getResource("Trainingsadd.fxml"));
+
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
