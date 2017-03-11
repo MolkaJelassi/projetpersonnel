@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane minHeight="400.0" minWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="interfacesMolka.TrainingsController">
+   <center>
+      <TableView fx:id="tabtraining" prefHeight="200.0" prefWidth="928.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="idTraining" prefWidth="47.0" text="id" />
+          <TableColumn fx:id="name" prefWidth="59.0" text="name" />
+            <TableColumn fx:id="capacity" prefWidth="64.0" text="capacity" />
+            <TableColumn fx:id="categorie" prefWidth="68.0" text="categorie" />
+            <TableColumn fx:id="dateBegin" prefWidth="78.0" text="DateBegin" />
+            <TableColumn fx:id="durationDay" prefWidth="81.0" text="DurationDay" />
+            <TableColumn fx:id="durationHour" minWidth="0.0" prefWidth="94.0" text="DurationHour" />
+            <TableColumn fx:id="fees" prefWidth="62.0" text="Fees" />
+            <TableColumn fx:id="hourBegin" prefWidth="74.0" text="HourBegin" />
+            <TableColumn fx:id="trainer" prefWidth="111.0" text="Trainer" />
+            <TableColumn fx:id="type" prefWidth="87.0" text="Type" />
+            <TableColumn fx:id="station" prefWidth="164.0" text="Station" />
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="100.0" left="5.0" right="5.0" top="200.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+</BorderPane>
