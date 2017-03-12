@@ -17,7 +17,7 @@ public class TestAddStaff {
 		StaffServicesRemote staffServicesRemote = (StaffServicesRemote) context.lookup(
 				"projet-personnel-ear/projet-personnel-ejb/StaffServices!tn.esprit.beautifulminds.services.crud.StaffServicesRemote");
 
-		String firstName = "snake";
+		String firstName = "molka";
 		String lastName = "shark";
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 		Date birthday = format.parse("22-04-1994");
