@@ -23,7 +23,7 @@ public class GestionController {
 			Stage stage = new Stage();
 			stage.setTitle("Management of the staff");
 
-			Scene scene = new Scene(FXMLLoader.load(getClass().getResource("GestionView.fxml")));
+			Scene scene = new Scene(FXMLLoader.load(getClass().getResource("StaffView.fxml")));
 
 			stage.setScene(scene);
 
@@ -38,16 +38,16 @@ public class GestionController {
 	void clickeventTrainingsB(ActionEvent event) {
 		try {
 			Stage stage = new Stage();
-		stage.setTitle("Management of trainings");
+			stage.setTitle("Management of trainings");
 
-		Scene scene;
-		
+			Scene scene;
+
 			scene = new Scene(FXMLLoader.load(getClass().getResource("TrainingsView.fxml")));
-		
-		stage.setScene(scene);
-		stage.show();
 
-	} catch (IOException e) {
+			stage.setScene(scene);
+			stage.show();
+
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

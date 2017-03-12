@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-
-<BorderPane minHeight="600.0" minWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+<BorderPane minHeight="600.0" minWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfacesMolka.StaffController">
    <center>
-      <TableView prefHeight="466.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tabstaff" prefHeight="466.0" prefWidth="600.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="42.0" text="Dtype" />
-          <TableColumn prefWidth="62.0" text="FirstName" />
-            <TableColumn prefWidth="61.0" text="LastName" />
-            <TableColumn prefWidth="47.0" text="Role" />
-            <TableColumn prefWidth="62.0" text="Gender" />
-            <TableColumn prefWidth="89.0" text="Nationality" />
-            <TableColumn prefWidth="57.0" text="Email" />
-            <TableColumn prefWidth="106.0" text="Congé annuel restant" />
-            <TableColumn prefWidth="149.0" text="Congé maladie restant" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
+          <TableColumn fx:id="firstname" prefWidth="62.0" text="FirstName" />
+            <TableColumn fx:id="lastname" prefWidth="61.0" text="LastName" />
+            <TableColumn fx:id="role" prefWidth="84.0" text="Role" />
+            <TableColumn fx:id="gender" prefWidth="51.0" text="Gender" />
+            <TableColumn fx:id="nationality" prefWidth="91.0" text="Nationality" />
+            <TableColumn fx:id="email" prefWidth="127.0" text="Email" />
+            <TableColumn fx:id="nbjCAR" prefWidth="131.0" text="Congé annuel restant" />
+            <TableColumn fx:id="nbjCMAR" prefWidth="140.0" text="Congé maladie restant" />
         </columns>
          <BorderPane.margin>
             <Insets bottom="100.0" left="5.0" right="5.0" top="100.0" />
          </BorderPane.margin>
       </TableView>
    </center>
+   <top>
+      <Label text="My staff" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+   </top>
 </BorderPane>
