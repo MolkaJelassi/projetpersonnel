@@ -22,7 +22,8 @@ public class Admin extends Person implements Serializable {
 	private List<Feedback> feedbacks;
 	@OneToMany(mappedBy = "admin")
 	private List<Memory> memories;
-
+	@OneToMany(mappedBy = "admin")
+	private List<Holiday> holidays;
 	@OneToMany(mappedBy = "admin")
 	private List<Applier> appliers;
 

@@ -1,11 +1,18 @@
 package interfacesMolka;
 
+import java.io.IOException;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import tn.esprit.beautifulminds.persistence.Staff;
 import tn.esprit.beautifulminds.services.crud.StaffServicesRemote;
 
@@ -66,5 +73,27 @@ public class MonCompteController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@FXML
+	private Button req;
+
+	@FXML
+	void Clickreq(ActionEvent event) {
+		try {
+
+			Stage stage = new Stage();
+			stage.setTitle("Add a Request");
+
+			Scene scene;
+			scene = new Scene(FXMLLoader.load(getClass().getResource("HoliAdd.fxml")));
+			stage.setScene(scene);
+			stage.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 }

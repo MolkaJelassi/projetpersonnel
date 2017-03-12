@@ -10,6 +10,7 @@
 		<class>tn.esprit.beautifulminds.persistence.Customer</class>
 		<class>tn.esprit.beautifulminds.persistence.Event</class>
 		<class>tn.esprit.beautifulminds.persistence.Feedback</class>
+		<class>tn.esprit.beautifulminds.persistence.Holiday</class>
 		<class>tn.esprit.beautifulminds.persistence.Material</class>
 		<class>tn.esprit.beautifulminds.persistence.Memory</class>
 		<class>tn.esprit.beautifulminds.persistence.Person</class>
