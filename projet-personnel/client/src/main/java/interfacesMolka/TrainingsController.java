@@ -103,6 +103,7 @@ public class TrainingsController {
 	void clickbuttonB(ActionEvent event) {
 		System.out.println("hey");
 		Stage stage = new Stage();
+
 		stage.setTitle("Add a training");
 		Parent root;
 		try {
@@ -111,6 +112,7 @@ public class TrainingsController {
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

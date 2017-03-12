@@ -42,6 +42,8 @@ public class Training implements Serializable {
 	private Station station;
 	private static final long serialVersionUID = 1L;
 
+	
+
 	public Training(String name, String type, String categorie, Date dateBegin, Integer hourBegin, Integer durationDay,
 			Integer durationHour, String trainer, float fees, Integer capacity, Integer station) {
 		super();

@@ -69,7 +69,9 @@ public class AddtrainingController {
 			Integer capacity = Integer.parseInt(cap.getText());
 			String categorie = cat.getText();
 
-			// Date dateBegin=date.;
+			date.setPromptText("date of booking");
+			date.setStyle("-fx-font-size:20");
+			// Date dat=date.getEditor();
 			Integer durationDay = Integer.parseInt(dd.getText());
 			Integer durationHour = Integer.parseInt(dh.getText());
 			Float fees = Float.parseFloat(fe.getText());
@@ -77,8 +79,17 @@ public class AddtrainingController {
 			String trainer = tr.getText();
 			String type = ty.getText();
 			// Integer station = Integer.parseInt(st.getText());
-			Training T = new Training(name, type, categorie, null, hourBegin, durationDay, durationHour, trainer, fees,
-					capacity);
+			Training T = new Training();
+			T.setName(name);
+			T.setType(type);
+			T.setCategorie(categorie);
+			// T.setDateBegin(date);
+			T.setHourBegin(hourBegin);
+			T.setDurationDay(durationDay);
+			T.setDurationHour(durationHour);
+			T.setTrainer(trainer);
+			T.setFees(fees);
+			T.setCapacity(capacity);
 			trainingservicesRemote.addTraining(T);
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -90,10 +101,13 @@ public class AddtrainingController {
 	void clickbuttonReturnT(ActionEvent event) {
 
 		Stage stage = new Stage();
+
 		try {
 			Scene scene = new Scene(FXMLLoader.load(getClass().getResource("TrainingsView.fxml")));
+			
 			stage.setScene(scene);
 			stage.show();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
