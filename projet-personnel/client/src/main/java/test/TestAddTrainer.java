@@ -17,25 +17,25 @@ public class TestAddTrainer {
 		TrainerServicesRemote trainerServicesRemote = (TrainerServicesRemote) context.lookup(
 				"projet-personnel-ear/projet-personnel-ejb/TrainerServices!tn.esprit.beautifulminds.services.crud.TrainerServicesRemote");
 
-		String firstName = "snake";
+		String firstName = "molka";
 		String lastName = "shark";
-		
+
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 		Date birthday = format.parse("22-04-1994");
-		
+
 		String nationality = "tunisienne";
 		String gender = "male";
 		String email = "snake@gmail.com";
 		String password = "snake";
 		String role = "entreneur glisse";
-		Integer nbjT = 30;
-		Integer nbjR = 12;
+		Integer nbjCA = 30;
+		Integer nbjCM = 30;
 		String expirence = "trois ans de travail dans differents stations";
 		String description = "jeune tunisien";
 		String categorie = "entreneur des amateurs";
 		Integer ratingPoints = null;
-		Trainer tr = new Trainer(firstName, lastName, birthday, nationality, gender, email, password, role, nbjT, nbjR,
-				expirence, description, categorie, ratingPoints);
+		Trainer tr = new Trainer(firstName, lastName, birthday, nationality, gender, email, password, role, nbjCA,
+				nbjCM, expirence, description, categorie, ratingPoints);
 		trainerServicesRemote.addTrainer(tr);
 	}
 }

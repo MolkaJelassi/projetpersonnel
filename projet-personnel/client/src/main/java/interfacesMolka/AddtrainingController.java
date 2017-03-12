@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.swing.JOptionPane;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -70,7 +71,7 @@ public class AddtrainingController {
 			String categorie = cat.getText();
 
 			date.setPromptText("date of booking");
-			date.setStyle("-fx-font-size:20");
+			// date.setStyle("-fx-font-size:20");
 			// Date dat=date.getEditor();
 			Integer durationDay = Integer.parseInt(dd.getText());
 			Integer durationHour = Integer.parseInt(dh.getText());
@@ -95,6 +96,7 @@ public class AddtrainingController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		JOptionPane.showMessageDialog(null, "lesson added");
 	}
 
 	@FXML
@@ -104,10 +106,10 @@ public class AddtrainingController {
 
 		try {
 			Scene scene = new Scene(FXMLLoader.load(getClass().getResource("TrainingsView.fxml")));
-			
+
 			stage.setScene(scene);
 			stage.show();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

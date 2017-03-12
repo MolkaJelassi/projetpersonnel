@@ -26,9 +26,9 @@ public class TestAddStaff {
 		String email = "snake@gmail.com";
 		String password = "snake";
 		String role = "vendor";
-		Integer nbjT = 30;
-		Integer nbjR = 12;
-		Staff st = new Staff(firstName, lastName, birthday, nationality, gender, email, password, role, nbjT, nbjR);
+		Integer nbjCA = 30;
+		Integer nbjCM = 30;
+		Staff st = new Staff(firstName, lastName, birthday, nationality, gender, email, password, role, nbjCA, nbjCM);
 		staffServicesRemote.addStaff(st);
 	}
 }

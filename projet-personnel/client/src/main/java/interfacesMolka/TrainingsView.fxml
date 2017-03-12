@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane minHeight="400.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfacesMolka.TrainingsController">
+<BorderPane minHeight="600.0" minWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfacesMolka.TrainingsController">
    <center>
       <TableView fx:id="tabtraining" prefHeight="200.0" prefWidth="990.0" BorderPane.alignment="CENTER">
         <columns>
