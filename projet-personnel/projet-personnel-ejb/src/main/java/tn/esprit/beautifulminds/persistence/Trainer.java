@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Null;
 
 /**
  * Entity implementation class for Entity: Trainer
@@ -20,10 +19,8 @@ public class Trainer extends Person implements Serializable {
 	private String password;
 	private String role;
 	private Integer nbjCA;
-	@Null
 	private Integer nbjCAR;
 	private Integer nbjCM;
-	@Null
 	private Integer nbjCMAR;
 	private String experience;
 	private String description;
@@ -147,6 +144,23 @@ public class Trainer extends Person implements Serializable {
 		this.role = role;
 		this.nbjCA = nbjCA;
 		this.nbjCM = nbjCM;
+		this.experience = experience;
+		this.description = description;
+		this.categorie = categorie;
+		this.ratingPoints = ratingPoints;
+	}
+
+	public Trainer(String firstName, String lastName, Date birthday, String nationality, String gender, String email,
+			String password, String role, Integer nbjCA, Integer nbjCAR, Integer nbjCM, Integer nbjCMAR,
+			String experience, String description, String categorie, Integer ratingPoints) {
+		super(firstName, lastName, birthday, nationality, gender);
+		this.email = email;
+		this.password = password;
+		this.role = role;
+		this.nbjCA = nbjCA;
+		this.nbjCAR = nbjCAR;
+		this.nbjCM = nbjCM;
+		this.nbjCMAR = nbjCMAR;
 		this.experience = experience;
 		this.description = description;
 		this.categorie = categorie;

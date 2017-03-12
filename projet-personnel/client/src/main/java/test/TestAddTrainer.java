@@ -30,12 +30,14 @@ public class TestAddTrainer {
 		String role = "entreneur glisse";
 		Integer nbjCA = 30;
 		Integer nbjCM = 30;
+		Integer nbjCAR = 30;
+		Integer nbjCMAR = 30;
 		String expirence = "trois ans de travail dans differents stations";
 		String description = "jeune tunisien";
 		String categorie = "entreneur des amateurs";
 		Integer ratingPoints = null;
 		Trainer tr = new Trainer(firstName, lastName, birthday, nationality, gender, email, password, role, nbjCA,
-				nbjCM, expirence, description, categorie, ratingPoints);
+				nbjCAR, nbjCM,  nbjCMAR, expirence, description, categorie, ratingPoints);
 		trainerServicesRemote.addTrainer(tr);
 	}
 }

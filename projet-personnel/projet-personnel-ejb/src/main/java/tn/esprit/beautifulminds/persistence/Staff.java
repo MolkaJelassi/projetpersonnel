@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Null;
 
 /**
  * Entity implementation class for Entity: Staff
@@ -22,10 +21,8 @@ public class Staff extends Person implements Serializable {
 	private String password;
 	private String role;
 	private Integer nbjCA;
-	@Null
 	private Integer nbjCAR;
 	private Integer nbjCM;
-	@Null
 	private Integer nbjCMAR;
 
 	@ManyToOne
@@ -186,6 +183,18 @@ public class Staff extends Person implements Serializable {
 		this.role = role;
 		this.nbjCA = nbjCA;
 		this.nbjCM = nbjCM;
+	}
+
+	public Staff(String firstName, String lastName, Date birthday, String nationality, String gender, String email,
+			String password, String role, Integer nbjCA, Integer nbjCAR, Integer nbjCM, Integer nbjCMAR) {
+		super(firstName, lastName, birthday, nationality, gender);
+		this.email = email;
+		this.password = password;
+		this.role = role;
+		this.nbjCA = nbjCA;
+		this.nbjCAR = nbjCAR;
+		this.nbjCM = nbjCM;
+		this.nbjCMAR = nbjCMAR;
 	}
 
 }

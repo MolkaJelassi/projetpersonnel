@@ -26,7 +26,7 @@ public class AuthController {
 			stage.setTitle("Mon Compte");
 
 			Scene scene;
-			scene = new Scene(FXMLLoader.load(getClass().getResource("PersonalView.fxml")));
+			scene = new Scene(FXMLLoader.load(getClass().getResource("PersonalIneterfaceView.fxml")));
 
 			stage.setScene(scene);
 			stage.show();

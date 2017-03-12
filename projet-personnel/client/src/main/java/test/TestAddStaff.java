@@ -28,7 +28,10 @@ public class TestAddStaff {
 		String role = "vendor";
 		Integer nbjCA = 30;
 		Integer nbjCM = 30;
-		Staff st = new Staff(firstName, lastName, birthday, nationality, gender, email, password, role, nbjCA, nbjCM);
+		Integer nbjCAR = 30;
+		Integer nbjCMAR = 30;
+		Staff st = new Staff(firstName, lastName, birthday, nationality, gender, email, password, role, nbjCA, nbjCAR,
+				nbjCM, nbjCMAR);
 		staffServicesRemote.addStaff(st);
 	}
 }
