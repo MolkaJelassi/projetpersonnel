@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import tn.esprit.beautifulminds.persistence.Holiday;
 import tn.esprit.beautifulminds.persistence.Training;
 
 /**
@@ -50,6 +51,17 @@ public class Trainingservices implements TrainingservicesRemote, Trainingservice
 	@Override
 	public List<Training> findAllTrainings() {
 		return entityManager.createQuery("select t from Training t ").getResultList();
+	}
+
+public List<Training> findTrainingsByType(Training type) {
+	
+		return entityManager.createQuery("select st from Training st where st.Type=" + type).getResultList();
+	}
+
+	@Override
+	public List<Training> findTrainingsByCategory(String categorie) {
+		return entityManager.createQuery("select st from Training st where st.categorie=" + categorie).getResultList();
+
 	}
 
 }

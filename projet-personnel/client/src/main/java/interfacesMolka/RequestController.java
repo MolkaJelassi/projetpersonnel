@@ -2,6 +2,7 @@ package interfacesMolka;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.naming.Context;
@@ -55,13 +56,15 @@ public class RequestController {
 			HolidayServiceRemote holidayServiceRemote = (HolidayServiceRemote) context.lookup(
 					"projet-personnel-ear/projet-personnel-ejb/HolidayService!tn.esprit.beautifulminds.services.crud.HolidayServiceRemote");
 
-			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-			Date dateDepart = format.parse("12-04-2017");
+			LocalDate d;
+			d = datepicker.getValue();
+			String s = d.toString();
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-DD");
+			Date dateDepart = format.parse(s);
 			// Integer nbrjour = Integer.parseInt(txt.getText());
 			Integer personId = AuthController.getId11();
 			Date dateDemande = new Date(System.currentTimeMillis());
 			Boolean etat = false;
-
 			Holiday h = new Holiday(personId, dateDemande, dateDepart, nbrjour, etat);
 			holidayServiceRemote.addHoliday(h);
 			// Integer nb = staff.getNbjCAR() - nbrjour;

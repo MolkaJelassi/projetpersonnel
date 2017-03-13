@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 /**
  * Entity implementation class for Entity: Training
@@ -25,6 +26,7 @@ public class Training implements Serializable {
 	private String Name;
 	private String type;
 	private String categorie;
+	
 	private Date dateBegin;
 	private Integer hourBegin;
 	private Integer durationDay;

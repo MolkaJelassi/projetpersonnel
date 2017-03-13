@@ -42,7 +42,7 @@ public class GestionController {
 
 			Scene scene;
 
-			scene = new Scene(FXMLLoader.load(getClass().getResource("TrainingsView.fxml")));
+			scene = new Scene(FXMLLoader.load(getClass().getResource("TrainingView.fxml")));
 
 			stage.setScene(scene);
 			stage.show();

@@ -1,24 +1,25 @@
 package interfacesMolka;
 
-import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.swing.JOptionPane;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import tn.esprit.beautifulminds.persistence.Training;
 import tn.esprit.beautifulminds.services.crud.TrainingservicesRemote;
 
@@ -28,9 +29,6 @@ public class TrainingsController {
 
 	@FXML
 	private TableView<Training> tabtraining;
-
-	@FXML
-	private TableColumn<Training, Integer> idTraining;
 
 	@FXML
 	private TableColumn<Training, String> name;
@@ -61,9 +59,34 @@ public class TrainingsController {
 
 	@FXML
 	private TableColumn<Training, String> type;
+	@FXML
+	private TextField na;
 
 	@FXML
-	private TableColumn<Training, Integer> station;
+	private TextField cap;
+
+	@FXML
+	private TextField cat;
+
+	@FXML
+	private TextField hb;
+
+	@FXML
+	private TextField dd;
+
+	@FXML
+	private TextField dh;
+
+	@FXML
+	private TextField fe;
+
+	@FXML
+	private TextField tr;
+
+	@FXML
+	private TextField ty;
+	@FXML
+	private DatePicker date;
 
 	public void initialize() {
 
@@ -78,7 +101,6 @@ public class TrainingsController {
 			ObservableList<Training> data = FXCollections
 					.observableArrayList(trainingservicesRemote.findAllTrainings());
 
-			idTraining.setCellValueFactory(new PropertyValueFactory<Training, Integer>("idTraining"));
 			name.setCellValueFactory(new PropertyValueFactory<Training, String>("name"));
 			capacity.setCellValueFactory(new PropertyValueFactory<Training, Integer>("capacity"));
 			categorie.setCellValueFactory(new PropertyValueFactory<Training, String>("categorie"));
@@ -89,9 +111,9 @@ public class TrainingsController {
 			hourBegin.setCellValueFactory(new PropertyValueFactory<Training, Integer>("hourBegin"));
 			trainer.setCellValueFactory(new PropertyValueFactory<Training, String>("trainer"));
 			type.setCellValueFactory(new PropertyValueFactory<Training, String>("type"));
-			station.setCellValueFactory(new PropertyValueFactory<Training, Integer>("station"));
 
 			tabtraining.setItems(data);
+			// tabtraining.refresh();
 
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -100,23 +122,161 @@ public class TrainingsController {
 	}
 
 	@FXML
-	void clickbuttonB(ActionEvent event) {
-		System.out.println("hey");
-		Stage stage = new Stage();
-
-		stage.setTitle("Add a training");
-		Parent root;
+	void clickbuttonB(ActionEvent event) throws ParseException {
+		Context context;
 		try {
-			root = FXMLLoader.load(getClass().getResource("Trainingsadd2.fxml"));
+			context = new InitialContext();
 
-			Scene scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+			TrainingservicesRemote trainingservicesRemote = (TrainingservicesRemote) context.lookup(
+					"/projet-personnel-ear/projet-personnel-ejb/Trainingservices!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
+			String name = na.getText();
+			Integer capacity = Integer.parseInt(cap.getText());
+			String categorie = cat.getText();
 
-		} catch (IOException e) {
+			// date.setValue(LocalDate.now());
+			// date.setShowWeekNumbers(true);
+			LocalDate d;
+			d = date.getValue();
+			String s = d.toString();
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-DD");
+			// System.out.println("*********" + s);
+			Date dateBegin = format.parse(s);
+			// System.out.println("*********" + dateBegin);
+			// Integer station = Integer.parseInt(st.getText());
+			Integer durationDay = Integer.parseInt(dd.getText());
+			Integer durationHour = Integer.parseInt(dh.getText());
+			Float fees = Float.parseFloat(fe.getText());
+			Integer hourBegin = Integer.parseInt(hb.getText());
+			String trainer = tr.getText();
+			String type = ty.getText();
+
+			Training T = new Training();
+			T.setName(name);
+			T.setType(type);
+			T.setCategorie(categorie);
+			T.setDateBegin(dateBegin);
+			T.setHourBegin(hourBegin);
+			T.setDurationDay(durationDay);
+			T.setDurationHour(durationHour);
+			T.setTrainer(trainer);
+			T.setFees(fees);
+			T.setCapacity(capacity);
+			trainingservicesRemote.addTraining(T);
+		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		JOptionPane.showMessageDialog(null, "lesson added");
+
 	}
 
+	@FXML
+	private Button delete;
+
+	@FXML
+	void clickDelete(ActionEvent event) throws NamingException {
+		Context context = new InitialContext();
+		TrainingservicesRemote trainingservicesRemote = (TrainingservicesRemote) context.lookup(
+				"projet-personnel-ear/projet-personnel-ejb/Trainingservices!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
+		trainingservicesRemote.deleteTraining(tabtraining.getSelectionModel().getSelectedItem());
+		tabtraining.getItems().remove(tabtraining.getSelectionModel().getSelectedItem());
+	}
+
+	@FXML
+	private Button up;
+
+	@FXML
+	void clickUp(ActionEvent event) throws NamingException {
+		Context context = new InitialContext();
+		TrainingservicesRemote trainingservicesRemote = (TrainingservicesRemote) context.lookup(
+				"projet-personnel-ear/projet-personnel-ejb/Trainingservices!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
+
+		Training training = tabtraining.getSelectionModel().getSelectedItem();
+		na.setText(training.getName());
+		cap.setText("" + training.getCapacity());
+
+		cat.setText(training.getCategorie());
+
+		// date.setValue(training.getDateBegin());
+		hb.setText("" + training.getHourBegin());
+		dd.setText("" + training.getDurationDay());
+
+		dh.setText("" + training.getDurationHour());
+		;
+
+		fe.setText("" + training.getFees());
+
+		tr.setText(training.getTrainer());
+
+		ty.setText(training.getType());
+
+	}
+
+	@FXML
+	private Button upp;
+
+	@FXML
+	void clickupp(ActionEvent event) throws NamingException, ParseException {
+		Context context = new InitialContext();
+		TrainingservicesRemote trainingservicesRemote = (TrainingservicesRemote) context.lookup(
+				"projet-personnel-ear/projet-personnel-ejb/Trainingservices!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
+
+		Training h = new Training();
+
+		ObservableList<Training> artselected;
+
+		artselected = tabtraining.getSelectionModel().getSelectedItems();
+		for (Training hotel : artselected) {
+			int id = hotel.getIdTraining();
+			h = trainingservicesRemote.findTrainingById(id);
+
+			h.setName(na.getText());
+			h.setCapacity(Integer.parseInt(cap.getText()));
+			h.setCategorie(cat.getText());
+			LocalDate d;
+			d = date.getValue();
+			String s = d.toString();
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-DD");
+			// System.out.println("*********" + s);
+			Date dateBegin = format.parse(s);
+			h.setDateBegin(dateBegin);
+			h.setHourBegin(Integer.parseInt(hb.getText()));
+			h.setDurationDay(Integer.parseInt(dd.getText()));
+			h.setDurationHour(Integer.parseInt(dh.getText()));
+			h.setFees(Float.parseFloat(fe.getText()));
+			h.setTrainer(tr.getText());
+			h.setType(ty.getText());
+
+			trainingservicesRemote.updateTraining(h);
+		}
+		na.setText("");
+		cap.setText("");
+
+		cat.setText("");
+		date.setValue(null);
+		hb.setText("");
+		dd.setText("");
+
+		dh.setText("");
+
+		fe.setText("");
+		tr.setText("");
+
+		ty.setText("");
+		////////////////////////////////////////
+		name.setCellValueFactory(new PropertyValueFactory<Training, String>("name"));
+		capacity.setCellValueFactory(new PropertyValueFactory<Training, Integer>("capacity"));
+		categorie.setCellValueFactory(new PropertyValueFactory<Training, String>("categorie"));
+		dateBegin.setCellValueFactory(new PropertyValueFactory<Training, Date>("dateBegin"));
+		durationDay.setCellValueFactory(new PropertyValueFactory<Training, Integer>("durationDay"));
+		durationHour.setCellValueFactory(new PropertyValueFactory<Training, Integer>("durationHour"));
+		fees.setCellValueFactory(new PropertyValueFactory<Training, Float>("fees"));
+		hourBegin.setCellValueFactory(new PropertyValueFactory<Training, Integer>("hourBegin"));
+		trainer.setCellValueFactory(new PropertyValueFactory<Training, String>("trainer"));
+		type.setCellValueFactory(new PropertyValueFactory<Training, String>("type"));
+		ObservableList<Training> data = FXCollections.observableArrayList(trainingservicesRemote.findAllTrainings());
+
+		tabtraining.setItems(data);
+		trainingservicesRemote.updateTraining(h);
+	}
 }
