@@ -5,7 +5,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import tn.esprit.beautifulminds.persistence.Staff;
-import tn.esprit.beautifulminds.services.crud.StaffServicesRemote;
 
 /**
  * Session Bean implementation class congeService
@@ -23,14 +22,14 @@ public class congeService implements congeServiceRemote, congeServiceLocal {
 		// TODO Auto-generated constructor stub
 	}
 
-	private StaffServicesRemote sr ;
-
+	// public Person findStaffById(Integer idPerson) {
+	// return entityManager.find(Staff.class, idPerson);
+	// }
 
 	@Override
-	public Integer getCar(Integer id , Integer j) {
-		Staff s = sr.findStaffById(id);
-		Integer a =s.getNbjCAR();
-		return a-j;
+	public Integer getCar(Staff staff, Integer j) {
+		Integer a = staff.getNbjCAR();
+		return a - j;
 	}
 
 }

@@ -16,7 +16,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import tn.esprit.beautifulminds.persistence.Holiday;
+import tn.esprit.beautifulminds.persistence.Staff;
 import tn.esprit.beautifulminds.services.crud.HolidayServiceRemote;
+import tn.esprit.beautifulminds.services.crud.StaffServicesRemote;
+import tn.esprit.beautifulminds.services.other.congeServiceRemote;
 
 public class RequestController {
 
@@ -33,26 +36,41 @@ public class RequestController {
 	private Button valider;
 
 	@FXML
-	void clickValide(ActionEvent event) throws ParseException {
+	void clickValide(ActionEvent event) throws ParseException, NamingException {
 
-		try {
+		Context context1 = new InitialContext();
+		StaffServicesRemote staffServicesRemote = (StaffServicesRemote) context1.lookup(
+				"projet-personnel-ear/projet-personnel-ejb/StaffServices!tn.esprit.beautifulminds.services.crud.StaffServicesRemote");
+		Staff staff = staffServicesRemote.findStaffById(AuthController.getId11());
+
+		Context context2 = new InitialContext();
+		congeServiceRemote CongeServiceRemote = (congeServiceRemote) context2.lookup(
+				"projet-personnel-ear/projet-personnel-ejb/congeService!tn.esprit.beautifulminds.services.other.congeServiceRemote");
+		Integer nbrjour = Integer.parseInt(txt.getText());
+		Integer b = CongeServiceRemote.getCar(staff, nbrjour);
+
+		if (b >= 0) {
+
 			Context context = new InitialContext();
 			HolidayServiceRemote holidayServiceRemote = (HolidayServiceRemote) context.lookup(
 					"projet-personnel-ear/projet-personnel-ejb/HolidayService!tn.esprit.beautifulminds.services.crud.HolidayServiceRemote");
 
 			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 			Date dateDepart = format.parse("12-04-2017");
-			Integer nbrjour = Integer.parseInt(txt.getText());
+			// Integer nbrjour = Integer.parseInt(txt.getText());
 			Integer personId = AuthController.getId11();
 			Date dateDemande = new Date(System.currentTimeMillis());
 			Boolean etat = false;
 
 			Holiday h = new Holiday(personId, dateDemande, dateDepart, nbrjour, etat);
 			holidayServiceRemote.addHoliday(h);
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		JOptionPane.showMessageDialog(null, "wait for a response please!");
+			// Integer nb = staff.getNbjCAR() - nbrjour;
+			staff.setNbjCAR(b);
+
+			staffServicesRemote.updateStaff(staff);
+			JOptionPane.showMessageDialog(null, "wait for a response please!");
+		} else
+			JOptionPane.showMessageDialog(null, "You can't have this periode sorry!");
+
 	}
 }

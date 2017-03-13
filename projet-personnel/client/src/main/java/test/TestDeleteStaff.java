@@ -14,7 +14,7 @@ public class TestDeleteStaff {
 		StaffServicesRemote staffServicesRemote = (StaffServicesRemote) context.lookup(
 				"projet-personnel-ear/projet-personnel-ejb/StaffServices!tn.esprit.beautifulminds.services.crud.StaffServicesRemote");
 
-		Staff staff1 = staffServicesRemote.findStaffById(3);
+		Staff staff1 = staffServicesRemote.findStaffById(2);
 
 	staffServicesRemote.deleteStaff(staff1);
 	}
