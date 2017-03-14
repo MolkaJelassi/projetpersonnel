@@ -52,16 +52,18 @@ public class Trainingservices implements TrainingservicesRemote, Trainingservice
 		return entityManager.createQuery("select t from Training t ").getResultList();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Training> findTrainingsByType(String type) {
-		return entityManager.createQuery("select o from Training o where o.type = ? " + type).getResultList();
+	public Training findTrainingsByType(String type) {
+
+		return entityManager.createQuery("select a from Training a where a.type=?1", Training.class)
+				.setParameter(1, type).getSingleResult();
 	}
 
 	@Override
-	public List<Training> findTrainingsByCategory(String categorie) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Training> findTrainingsByType2(String type) {
+		return entityManager.createQuery("select a from Training a where a.type=?1", Training.class)
+				.setParameter(1, type).getResultList();
+
 	}
 
 }

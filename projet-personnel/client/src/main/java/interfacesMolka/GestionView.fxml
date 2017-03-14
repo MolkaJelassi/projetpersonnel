@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane minHeight="600.0" minWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="interfacesMolka.GestionController">
+<BorderPane minHeight="600.0" minWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfacesMolka.GestionController">
    <center>
       <Label text="Menu" textAlignment="CENTER" textFill="#8c79eb" BorderPane.alignment="CENTER">
          <font>
@@ -38,4 +37,11 @@
          </BorderPane.margin>
       </Button>
    </right>
+   <bottom>
+      <Button fx:id="holi" mnemonicParsing="false" onAction="#clickholi" prefHeight="64.0" prefWidth="184.0" text="List of holidays" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </bottom>
 </BorderPane>

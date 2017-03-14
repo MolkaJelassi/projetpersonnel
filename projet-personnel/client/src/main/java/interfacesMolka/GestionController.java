@@ -16,7 +16,8 @@ public class GestionController {
 
 	@FXML
 	private Button staffB;
-
+	@FXML
+	private Button holi;
 	@FXML
 	void clickeventStaffB(ActionEvent event) {
 		try {
@@ -53,5 +54,23 @@ public class GestionController {
 			e.printStackTrace();
 		}
 	}
+	@FXML
+	void clickholi(ActionEvent event) {
+		try {
+			Stage stage = new Stage();
+			stage.setTitle("Management of holidays");
 
+			Scene scene;
+
+			scene = new Scene(FXMLLoader.load(getClass().getResource("HolidayView.fxml")));
+
+			stage.setScene(scene);
+			stage.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }

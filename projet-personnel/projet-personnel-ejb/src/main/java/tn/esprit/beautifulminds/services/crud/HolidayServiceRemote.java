@@ -18,6 +18,6 @@ public interface HolidayServiceRemote {
 
 	List<Holiday> findAllHolidays();
 
-	List<Holiday> findAllHolidaysPerPerson(Holiday idPerson);
+	List<Holiday> findAllHolidaysPerPerson(Integer idPerson);
 
 }

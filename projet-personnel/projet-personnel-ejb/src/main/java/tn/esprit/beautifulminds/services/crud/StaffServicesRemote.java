@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Remote;
 
 import tn.esprit.beautifulminds.persistence.Staff;
+import tn.esprit.beautifulminds.persistence.Training;
 
 @Remote
 public interface StaffServicesRemote {
@@ -17,4 +18,6 @@ public interface StaffServicesRemote {
 	void updateStaff(Staff staff);
 
 	List<Staff> findAllStaffs();
+	List<Staff> findStaffByRole(String role);
+
 }

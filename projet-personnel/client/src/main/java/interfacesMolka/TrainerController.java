@@ -170,6 +170,7 @@ public class TrainerController {
 		st.setCategorie(categorie);
 		trainerServicesRemote.addTrainer(st);
 		JOptionPane.showMessageDialog(null, "Trainer added");
+
 	}
 
 	@FXML

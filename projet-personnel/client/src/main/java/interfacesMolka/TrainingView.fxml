@@ -74,8 +74,10 @@
             <DatePicker fx:id="date" prefHeight="25.0" prefWidth="194.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Button fx:id="delete" layoutX="45.0" layoutY="161.0" mnemonicParsing="false" onAction="#clickDelete" text="Delete" />
-      <Button fx:id="up" layoutX="43.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickUp" text="recover" />
-      <Button fx:id="upp" layoutX="45.0" layoutY="233.0" mnemonicParsing="false" onAction="#clickupp" text="Update" />
+      <Button fx:id="delete" layoutX="181.0" layoutY="89.0" mnemonicParsing="false" onAction="#clickDelete" text="Delete" />
+      <Button fx:id="up" layoutX="179.0" layoutY="161.0" mnemonicParsing="false" onAction="#clickUp" text="recover" />
+      <Button fx:id="upp" layoutX="43.0" layoutY="161.0" mnemonicParsing="false" onAction="#clickupp" text="Update" />
+      <TextField fx:id="rech" layoutX="32.0" layoutY="256.0" promptText="find by type" />
+      <Button fx:id="find" layoutX="206.0" layoutY="256.0" mnemonicParsing="false" onAction="#clickfind" text="find" />
    </children>
 </AnchorPane>

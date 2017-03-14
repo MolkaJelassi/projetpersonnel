@@ -52,9 +52,10 @@ public class HolidayService implements HolidayServiceRemote, HolidayServiceLocal
 	}
 
 	@Override
-	public List<Holiday> findAllHolidaysPerPerson(Holiday personId) {
-		
-		return entityManager.createQuery("select st from Holiday st where st.PersonId=" + personId).getResultList();
+	public List<Holiday> findAllHolidaysPerPerson(Integer personId) {
+
+		return entityManager.createQuery("select a from Holiday a where a.personId=?1", Holiday.class)
+				.setParameter(1, personId).getResultList();
 	}
 
 }

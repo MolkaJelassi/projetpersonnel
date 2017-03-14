@@ -281,4 +281,36 @@ public class TrainingsController {
 		tabtraining.setItems(data);
 		trainingservicesRemote.updateTraining(T);
 	}
+
+	@FXML
+	private TextField rech;
+
+	@FXML
+	private Button find;
+
+	@FXML
+	void clickfind(ActionEvent event) throws NamingException {
+		String a = rech.getText();
+		Context context = new InitialContext();
+		TrainingservicesRemote trainingservicesRemote = (TrainingservicesRemote) context.lookup(
+				"projet-personnel-ear/projet-personnel-ejb/Trainingservices!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
+		ObservableList<Training> data = FXCollections
+				.observableArrayList(trainingservicesRemote.findTrainingsByType2(a));
+
+		name.setCellValueFactory(new PropertyValueFactory<Training, String>("name"));
+		capacity.setCellValueFactory(new PropertyValueFactory<Training, Integer>("capacity"));
+		categorie.setCellValueFactory(new PropertyValueFactory<Training, String>("categorie"));
+		dateBegin.setCellValueFactory(new PropertyValueFactory<Training, Date>("dateBegin"));
+		durationDay.setCellValueFactory(new PropertyValueFactory<Training, Integer>("durationDay"));
+		durationHour.setCellValueFactory(new PropertyValueFactory<Training, Integer>("durationHour"));
+		fees.setCellValueFactory(new PropertyValueFactory<Training, Float>("fees"));
+		hourBegin.setCellValueFactory(new PropertyValueFactory<Training, Integer>("hourBegin"));
+		trainer.setCellValueFactory(new PropertyValueFactory<Training, String>("trainer"));
+		type.setCellValueFactory(new PropertyValueFactory<Training, String>("type"));
+
+		tabtraining.setItems(data);
+		// tabtraining.refresh();
+
+	}
+
 }

@@ -18,7 +18,7 @@ public interface TrainingservicesRemote {
 
 	List<Training> findAllTrainings();
 
-	List<Training> findTrainingsByType(String type);
+	Training findTrainingsByType(String type);
 
-	List<Training> findTrainingsByCategory(String categorie);
+	List<Training> findTrainingsByType2(String type);
 }

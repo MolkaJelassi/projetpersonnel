@@ -32,4 +32,10 @@ public class congeService implements congeServiceRemote, congeServiceLocal {
 		return a - j;
 	}
 
+	@Override
+	public Integer getCar2(Staff staff, Integer j) {
+		Integer a = staff.getNbjCMAR();
+		return a - j;
+	}
+
 }

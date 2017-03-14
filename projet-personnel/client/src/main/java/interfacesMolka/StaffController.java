@@ -22,7 +22,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import tn.esprit.beautifulminds.persistence.Staff;
+import tn.esprit.beautifulminds.persistence.Training;
 import tn.esprit.beautifulminds.services.crud.StaffServicesRemote;
+import tn.esprit.beautifulminds.services.crud.TrainingservicesRemote;
 
 public class StaffController {
 
@@ -161,7 +163,7 @@ public class StaffController {
 		st.setNbjCMAR(nbjCMAR);
 		staffServicesRemote.addStaff(st);
 		JOptionPane.showMessageDialog(null, "Staff added");
-	}
+		}
 
 	@FXML
 	void clickdelete(ActionEvent event) throws NamingException {
@@ -237,5 +239,32 @@ public class StaffController {
 
 	}
 	
+	@FXML
+	private TextField rech;
 
+	@FXML
+	private Button find;
+
+	@FXML
+	void clickfind(ActionEvent event) throws NamingException {
+		String a = rech.getText();
+		Context context = new InitialContext();
+		StaffServicesRemote staffServicesRemote = (StaffServicesRemote) context.lookup(
+				"projet-personnel-ear/projet-personnel-ejb/StaffServices!tn.esprit.beautifulminds.services.crud.StaffServicesRemote");
+ObservableList<Staff> data = FXCollections
+				.observableArrayList(staffServicesRemote.findStaffByRole(a));
+
+		firstname.setCellValueFactory(new PropertyValueFactory<Staff, String>("firstName"));
+		lastname.setCellValueFactory(new PropertyValueFactory<Staff, String>("lastName"));
+		role.setCellValueFactory(new PropertyValueFactory<Staff, String>("role"));
+		gender.setCellValueFactory(new PropertyValueFactory<Staff, String>("gender"));
+		nationality.setCellValueFactory(new PropertyValueFactory<Staff, String>("nationality"));
+		email.setCellValueFactory(new PropertyValueFactory<Staff, String>("email"));
+		nbjCAR.setCellValueFactory(new PropertyValueFactory<Staff, Integer>("nbjCAR"));
+		nbjCMAR.setCellValueFactory(new PropertyValueFactory<Staff, Integer>("nbjCMAR"));
+
+		tabstaff.setItems(data);
+		// tabtraining.refresh();
+
+	}
 }

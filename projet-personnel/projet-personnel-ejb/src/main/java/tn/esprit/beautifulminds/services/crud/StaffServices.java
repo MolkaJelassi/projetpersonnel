@@ -53,4 +53,11 @@ public class StaffServices implements StaffServicesRemote, StaffServicesLocal {
 		return entityManager.createQuery("select st from Staff st ").getResultList();
 	}
 
+	@Override
+	public List<Staff> findStaffByRole(String role) {
+		return entityManager.createQuery("select a from Staff a where a.role=?1", Staff.class).setParameter(1, role)
+				.getResultList();
+
+	}
+
 }

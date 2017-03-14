@@ -22,5 +22,12 @@ public class MainMolka extends Application {
 		stage.setScene(scene);
 		stage.show();
 	}
+	public void goTo(Stage primaryStage) throws Exception {
+		Stage stage = new Stage();
+		stage.setTitle("Menu");
 
+		Scene scene = new Scene(FXMLLoader.load(getClass().getResource("GestionView.fxml")));
+		stage.setScene(scene);
+		stage.show();
+	}
 }
