@@ -90,7 +90,7 @@ public class HolidayController {
 		HolidayServiceRemote holidayServicesRemote = (HolidayServiceRemote) context.lookup(
 				"projet-personnel-ear/projet-personnel-ejb/HolidayService!tn.esprit.beautifulminds.services.crud.HolidayServiceRemote");
 
-		holidayServicesRemote.deleteHoliday(tabholi.getSelectionModel().getSelectedItem());
+		// holidayServicesRemote.deleteHoliday(tabholi.getSelectionModel().getSelectedItem());
 		tabholi.getItems().remove(tabholi.getSelectionModel().getSelectedItem());
 
 	}

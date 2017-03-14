@@ -8,7 +8,6 @@ import java.util.Date;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.swing.JOptionPane;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -122,9 +121,9 @@ public class TrainingsController {
 	}
 
 	@FXML
-	void clickbuttonB(ActionEvent event) throws ParseException {
+	void clickbuttonB(ActionEvent event) throws ParseException, NamingException {
 		Context context;
-		try {
+		
 			context = new InitialContext();
 
 			TrainingservicesRemote trainingservicesRemote = (TrainingservicesRemote) context.lookup(
@@ -162,11 +161,9 @@ public class TrainingsController {
 			T.setFees(fees);
 			T.setCapacity(capacity);
 			trainingservicesRemote.addTraining(T);
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		JOptionPane.showMessageDialog(null, "lesson added");
+		
+		//JOptionPane.showMessageDialog(null, "lesson added");
+		
 
 	}
 

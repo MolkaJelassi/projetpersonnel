@@ -18,16 +18,9 @@ public class MainMolka extends Application {
 		Stage stage = new Stage();
 		stage.setTitle("Menu");
 
-		Scene scene = new Scene(FXMLLoader.load(getClass().getResource("GestionView.fxml")));
+		Scene scene = new Scene(FXMLLoader.load(getClass().getResource("GestionView1.fxml")));
 		stage.setScene(scene);
 		stage.show();
 	}
-	public void goTo(Stage primaryStage) throws Exception {
-		Stage stage = new Stage();
-		stage.setTitle("Menu");
 
-		Scene scene = new Scene(FXMLLoader.load(getClass().getResource("GestionView.fxml")));
-		stage.setScene(scene);
-		stage.show();
-	}
 }
