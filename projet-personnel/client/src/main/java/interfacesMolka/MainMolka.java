@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 
 public class MainMolka extends Application {
 
+	public static Object primaryStage;
+
 	public static void main(String[] args) {
 		launch(args);
 	}

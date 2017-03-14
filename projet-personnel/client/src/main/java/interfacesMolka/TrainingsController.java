@@ -187,9 +187,10 @@ public class TrainingsController {
 
 	@FXML
 	void clickUp(ActionEvent event) throws NamingException {
-		Context context = new InitialContext();
-		TrainingservicesRemote trainingservicesRemote = (TrainingservicesRemote) context.lookup(
-				"projet-personnel-ear/projet-personnel-ejb/Trainingservices!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
+		// Context context = new InitialContext();
+		// TrainingservicesRemote trainingservicesRemote =
+		// (TrainingservicesRemote) context.lookup(
+		// "projet-personnel-ear/projet-personnel-ejb/Trainingservices!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
 
 		Training training = tabtraining.getSelectionModel().getSelectedItem();
 		na.setText(training.getName());
@@ -221,39 +222,40 @@ public class TrainingsController {
 		TrainingservicesRemote trainingservicesRemote = (TrainingservicesRemote) context.lookup(
 				"projet-personnel-ear/projet-personnel-ejb/Trainingservices!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
 
-		Training h = new Training();
+		Training T = new Training();
 
-		ObservableList<Training> artselected;
+		ObservableList<Training> trainings;
 
-		artselected = tabtraining.getSelectionModel().getSelectedItems();
-		for (Training hotel : artselected) {
-			int id = hotel.getIdTraining();
-			h = trainingservicesRemote.findTrainingById(id);
+		trainings = tabtraining.getSelectionModel().getSelectedItems();
+		for (Training train : trainings) {
+			int id = train.getIdTraining();
+			T = trainingservicesRemote.findTrainingById(id);
 
-			h.setName(na.getText());
-			h.setCapacity(Integer.parseInt(cap.getText()));
-			h.setCategorie(cat.getText());
+			T.setName(na.getText());
+			T.setCapacity(Integer.parseInt(cap.getText()));
+			T.setCategorie(cat.getText());
+			// Date dateBegin=h.setDateBegin(dateBegin);
 			LocalDate d;
 			d = date.getValue();
 			String s = d.toString();
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-DD");
 			// System.out.println("*********" + s);
 			Date dateBegin = format.parse(s);
-			h.setDateBegin(dateBegin);
-			h.setHourBegin(Integer.parseInt(hb.getText()));
-			h.setDurationDay(Integer.parseInt(dd.getText()));
-			h.setDurationHour(Integer.parseInt(dh.getText()));
-			h.setFees(Float.parseFloat(fe.getText()));
-			h.setTrainer(tr.getText());
-			h.setType(ty.getText());
+			T.setDateBegin(dateBegin);
+			T.setHourBegin(Integer.parseInt(hb.getText()));
+			T.setDurationDay(Integer.parseInt(dd.getText()));
+			T.setDurationHour(Integer.parseInt(dh.getText()));
+			T.setFees(Float.parseFloat(fe.getText()));
+			T.setTrainer(tr.getText());
+			T.setType(ty.getText());
 
-			trainingservicesRemote.updateTraining(h);
+			trainingservicesRemote.updateTraining(T);
 		}
 		na.setText("");
 		cap.setText("");
 
 		cat.setText("");
-		date.setValue(null);
+
 		hb.setText("");
 		dd.setText("");
 
@@ -277,6 +279,6 @@ public class TrainingsController {
 		ObservableList<Training> data = FXCollections.observableArrayList(trainingservicesRemote.findAllTrainings());
 
 		tabtraining.setItems(data);
-		trainingservicesRemote.updateTraining(h);
+		trainingservicesRemote.updateTraining(T);
 	}
 }

@@ -14,10 +14,10 @@ public class TestFindAllTraining {
 		Context context = new InitialContext();
 		TrainingservicesRemote trainingservicesRemote = (TrainingservicesRemote) context.lookup(
 				"projet-personnel-ear/projet-personnel-ejb/Trainingservices!tn.esprit.beautifulminds.services.crud.TrainingservicesRemote");
-		List<Training> training = trainingservicesRemote.findAllTrainings();
+		List<Training> training = trainingservicesRemote.findTrainingsByType("water");
 
 		for (Training t : training) {
-			System.out.println(t.getType());
+			System.out.println(t);
 		}
 
 	}

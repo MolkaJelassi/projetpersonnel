@@ -23,11 +23,12 @@ public class GestionController {
 			Stage stage = new Stage();
 			stage.setTitle("Management of the staff");
 
-			Scene scene = new Scene(FXMLLoader.load(getClass().getResource("StaffView.fxml")));
+			Scene scene = new Scene(FXMLLoader.load(getClass().getResource("GestionView2.fxml")));
 
 			stage.setScene(scene);
 
 			stage.show();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
